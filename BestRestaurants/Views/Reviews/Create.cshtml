@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@model BestRestaurants.Models.Review;
+
+<h4> Add a new review!</h4>
+
+@using (Html.BeginForm())
+{
+
+  @Html.HiddenFor(model => model.RestaurantId)
+
+  <p>&#11088; @Html.RadioButtonFor(model => model.Rating,  1)</p>
+  <p>&#11088;&#11088; @Html.RadioButtonFor(model => model.Rating, 2)</p>
+  <p>&#11088;&#11088;&#11088; @Html.RadioButtonFor(model => model.Rating, 3)</p>
+  <p>&#11088;&#11088;&#11088;&#11088; @Html.RadioButtonFor(model => model.Rating, 4)</p>
+  <p>&#11088;&#11088;&#11088;&#11088;&#11088; @Html.RadioButtonFor(model => model.Rating, 5)</p>
+
+  @* @Html.LabelFor(model => model.Rating)
+  @Html.TextBoxFor(Model => Model.Rating) *@
+  
+  @Html.LabelFor(model => model.ReviewText)
+  @Html.TextBoxFor(model => model.ReviewText)
+  <input type="submit" value ="Add new review" class="btn btn-primary" />
+}
+<p>@Html.ActionLink("Show all restaurants", "Index", "Restaurants")
